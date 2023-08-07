@@ -1,0 +1,63 @@
+.bdy{
+    background: black;
+}
+
+
+:root{
+    --para-color:red;
+    --font-color:#dd3535;
+    --background:yellow;
+    --heading:green;
+}
+[data-theme="dark"]{
+    --para-color:rgb(255, 255, 255);
+    --font-color:rgb(255, 0, 0);
+    --background:rgb(0, 0, 0);
+    --heading:rgb(204, 35, 255);
+}
+.logo h1{
+    color: var(--heading);
+}
+.menu {
+    color: var(--font-color);
+}
+.para {
+    background-color: var(--background);
+
+}
+.para p{
+    color: var(--para-color);
+}
+
+#change{
+    color: red;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 3px;
+    margin-bottom:4px;
+    cursor: pointer;
+}
+.btn{
+    margin-bottom: 10px;
+}
+
+
+
+
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:center;
+    align-items:flex-start ;
+    align-content: flex-start;
+    gap: 10px;
+    
+}
+.para{
+    display: flex;
+    text-align: justify;
+    margin: 0px;
+    padding: 3px;
+}
+

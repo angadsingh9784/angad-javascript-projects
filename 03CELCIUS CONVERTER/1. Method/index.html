@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Please enter the temperature you'd like to convert</h1>
+    <input type="text" id="input1">
+    <select id="abc" onchange="myFunction()" >
+        <option value="">Choose The Option</option>
+        <option value="celsius">Celsius</option>
+        <option value="fahrenheit">Fahrenheit</option>
+    </select>
+
+    <p id="para"></p>
+
+
+    <script>
+        function myFunction(){
+            const inpt=document.getElementById('input1').value;
+            const x=document.getElementById("abc").value;
+            if(x=='celsius'){
+                document.getElementById("para").innerHTML=`=${((inpt-32)*5/9).toFixed(2)} Celsius`;
+            }
+            else if(x=='fahrenheit'){
+                document.getElementById("para").innerHTML=`=${Math.round((inpt*1.8)+32)} Faherenheit`;
+            }
+            
+        }
+        
+    </script>
+</body>
+</html>

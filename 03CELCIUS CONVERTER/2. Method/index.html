@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form id="fom" onsubmit="myFunction(); return false">
+        <input type="text" id="input1">
+        <select id="temp">
+            <option value="Celcius">Celcius</option>
+            <option value="Fahrenheit">Fahrenheit</option>
+        </select>
+        <input type="submit" value="Submit">
+        <p id="result"></p>
+
+    </form>
+<script>
+    
+    function myFunction(){
+        const inp=document.getElementById('input1').value;
+        const tempSelect=document.getElementById('temp');
+
+        const valueTemp=tempSelect.options[tempSelect.selectedIndex];
+        console.log(valueTemp);
+
+        
+    }
+
+</script>    
+</body>
+</html>

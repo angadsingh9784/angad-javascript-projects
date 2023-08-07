@@ -1,0 +1,32 @@
+:root,
+:root.light{
+    --bgColor:white;
+    --btn-color:black;
+}
+:root.dark{
+    --bgColor:black;
+    --btn-color:white;
+}
+
+h1{
+    color: var(--btn-color);
+}
+
+body{
+    background-color: var(--bgColor);
+}
+.btn p{
+    color: var(--btn-color);
+}
+
+
+#change{
+    color: red;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 3px;
+    margin-bottom:4px;
+    cursor: pointer;
+    background-color: var(--btn-color);
+}
+
