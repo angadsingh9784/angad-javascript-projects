@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissor Game</title>
+    <link rel="shortcut icon" href="favicon.png" type="image/png" />
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 50px;
+            font-weight: bolder;
+        }
+
+        .main {
+            width: 100%;
+
+        }
+
+        body {
+            background:linear-gradient(rgb(72, 167, 72),rgba(87, 197, 35, 0.685));
+        }
+
+        .score-board {
+            background-color: rgba(92, 133, 74, 0.685);
+            text-align: center;
+        }
+
+        .userScore {
+            color: aqua;
+            display: inline-block;
+
+        }
+
+        .compScore {
+            display: inline-block;
+            color: aqua;
+        }
+
+        .result {
+            text-align: center;
+        }
+
+        #userSel {
+            margin-top: 50px;
+        }
+
+        #compSel {
+            margin-top: 20px;
+        }
+
+        #whoIsWin {
+            margin-top: 30px;
+            color: red;
+
+        }
+
+
+
+        .options {
+            text-align: center;
+        }
+
+        .choice {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px;
+        }
+
+        .choice:hover {
+            background-color: aqua;
+            border-radius: 40px;
+        }
+
+        @media (max-width: 400px) {
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+                font-size: 20px;
+                font-weight: bolder;
+            }
+
+            .main {
+                width: 100%;
+                height: 440px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="main">
+        <div class="score-board">
+            <div class="userScore">USER</div>
+            <span id="userVal">0</span>:<span id="compVal">0</span>
+            <div class="compScore">COMP</div>
+        </div>
+        <div class="result">
+            <p id="userSel">User :</p>
+            <p id="compSel">Computer :</p>
+            <p id="whoIsWin">Winner :</p>
+        </div>
+        <div class="options">
+            <div class="choice" id="r">
+                <img src="rock.png">
+            </div>
+            <div class="choice" id="p">
+                <img src="paper.png">
+            </div>
+            <div class="choice" id="s">
+                <img src="scissors.png">
+            </div>
+        </div>
+    </div>
+    <script>
+        const showUserSelection = document.querySelector('#userSel');
+        const showCompSelection = document.querySelector('#compSel')
+        const winRes = document.querySelector('#whoIsWin')
+        const winNumUs=document.querySelector('#userVal')
+        const winNumCo=document.querySelector('#compVal')
+        const rock = document.querySelector('#r');
+        const paper = document.querySelector('#p');
+        const scissor = document.querySelector('#s');
+        
+
+
+        let rockImage = "rock.png";
+        let paperImage = "paper.png";
+        let scissorImage = "scissors.png";
+
+
+
+        let userChoice = "";
+
+        rock.addEventListener('click', () => {
+
+            showUserSelection.innerHTML = `User : <img src="${rockImage}">`;
+            userChoice = "rock";
+            computerSelection();
+            winner();
+        });
+
+        paper.addEventListener('click', () => {
+            showUserSelection.innerHTML = `User : <img src="${paperImage}">`;
+            userChoice = "paper";
+            computerSelection();
+            winner();
+        })
+
+
+        scissor.addEventListener('click', () => {
+            showUserSelection.innerHTML = `User : <img src="${scissorImage}">`;
+            userChoice = "scissor";
+            computerSelection();
+            winner();
+        })
+
+
+
+        function computerSelection() {
+            let choicess = [];
+            choicess.push(rock, paper, scissor);
+            let randomIndex = Math.floor(Math.random() * choicess.length);
+            let choice = choicess[randomIndex];
+
+
+            let imageSource = "";
+            let compSelect = "";
+
+            if (choice === rock) {
+                imageSource = rockImage;
+                compSelect = "rock";
+
+            }
+            else if (choice === paper) {
+                imageSource = paperImage;
+                compSelect = "paper";
+            }
+            else if (choice === scissor) {
+                imageSource = scissorImage;
+                compSelect = "scissor";
+            }
+            showCompSelection.innerHTML = `Computer : <img src="${imageSource}">`;
+            return compSelect;
+
+        }
+
+        function winner() {
+            let computerChoice = computerSelection();
+            if (userChoice === computerChoice) {
+                winRes.innerHTML = "It's a Tie";
+            } else if (
+                (userChoice === "rock" && computerChoice === "scissor") ||
+                (userChoice === "paper" && computerChoice === "rock") ||
+                (userChoice === "scissor" && computerChoice === "paper")
+
+            ) {
+                winRes.innerHTML = "Winner :User";
+                    winNumUs.innerText=Number(winNumUs.innerText)+1;
+            }else{
+                winRes.innerHTML="Winner :Computer";
+                winNumCo.innerText=Number(winNumCo.innerText)+1;
+            }
+
+        }
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background:radial-gradient(rgb(236, 240, 29),rgb(11, 215, 230));
+            width: 100%;
+        }
+
+        .main {
+            background-color: rgb(9, 2, 41);
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            color: rgb(246, 248, 244);
+            margin-bottom: 20px;
+        }
+
+        #btn {
+            background: transparent;
+            padding: 10px;
+            color: aliceblue;
+            cursor: pointer;
+            border: 1px solid white;
+            margin-top: 30px;
+        }
+
+        #btn:hover {
+            background-color: white;
+            color: black;
+            font-weight: bolder;
+            border: 1px solid black;
+            box-shadow: 2px 2px 5px rgb(212, 205, 205);
+        }
+
+        @media (max-width: 400px) {
+            .main {
+                background:linear-gradient(rgb(158, 128, 128),rgb(88, 119, 221));
+                text-align: center;
+                padding: 40px;
+                font-size: 14px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="child">
+            <h1>Don't laugh challenge</h1>
+            <p id="jokes"></p>
+            <button id="btn">Next Joke</button>
+        </div>
+    </div>
+
+    <script>
+
+        const jokeBtn = document.querySelector('#btn');
+        const showJoke = document.querySelector('#jokes');
+        const apiUrl = `https://official-joke-api.appspot.com/random_joke`;
+
+        async function getJoke() {
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+            const setup = data.setup;
+            const punchline = data.punchline;
+            showJoke.innerHTML = `<h3>${setup}</h3><br><h5>${punchline}</h5>`;
+        }
+
+        jokeBtn.addEventListener('click', getJoke)
+
+    </script>
+</body>
+
+</html>

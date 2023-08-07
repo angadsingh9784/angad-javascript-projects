@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>See what you type</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            
+        }
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: aquamarine;
+            width: 100%;
+        }
+        .main{
+            background-color: aliceblue;
+            padding: 20px;
+            border-radius: 30px;
+           
+        }
+        .child{
+            text-align: center;
+        }
+        h1{
+            margin-bottom: 10px;
+        }
+        textarea{
+            width: 400px;
+            border: none;
+            margin-bottom: 20px;
+
+
+        }
+        @media (max-width: 500px) {
+            .main {
+               
+                padding: 40px;
+                font-size: 20px;
+                margin: 10px;
+            }
+            body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: aquamarine;
+         
+        }
+        textarea{
+            width: 300px;
+
+        }
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="child">
+            <h1>See What You Type</h1>
+            <textarea id="tst" cols="50" rows="10" oninput="update()"></textarea>
+            <p id="resPara">Input Box is Empty....Start Typing</p>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        
+        const txtArea=document.querySelector('#tst');
+        const result=document.querySelector('#resPara');
+
+        function update(){
+            if(txtArea===""){
+                console.log('hy')
+            }else{
+                result.innerHTML=txtArea.value;
+            }
+
+        }
+    </script>
+</body>
+</html>

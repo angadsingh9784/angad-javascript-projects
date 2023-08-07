@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github Profile Wrapper</title>
+    <link rel="stylesheet" href="style.css">
+
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        body{
+            background-color: rgb(242, 255, 127);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+        .container{
+            background-color: rgba(167, 44, 44, 0.096);
+            text-align: center;
+            height: auto;
+            padding: 20px;
+        }
+        .container h1{
+            font-family: 'Courier New', Courier, monospace;
+            color: aliceblue;
+            padding: 20px;
+            background-color:rgba(137, 43, 226, 0.082);
+            font-weight: bolder;
+        }
+        #username{
+            width: 50%;
+            display: inline-block;
+            border: 2px solid brown;
+            font-size: 20px;
+            padding: 3px;
+            text-align: center;
+            
+            margin-top: 10px;
+        }
+        #showDetails{
+            margin-top: 10px;
+            display: inline-block;
+            width: 80%;
+            font-size: 20px;
+            border-radius: 10px;
+            filter: drop-shadow(
+                5px 5px rgb(172, 168, 168)
+            );
+            border: 1px solid white;
+            cursor: pointer;
+        }
+        .card{
+            background-color: rgba(0, 0, 0, 0.075);
+        }
+        .card-img{
+            padding: 20px;
+            background-color: rgba(255, 0, 0, 0.11);
+            margin-top: 20px;
+            border: 2px solid white;
+        }
+        .card-img img{
+            width: 270px;
+            border-radius: 50%;
+            
+        }
+        .card-body{
+            
+         
+            padding: 20px;
+        }
+        .card-title{
+            font-size: 40px;
+            color: rgb(47, 53, 53);
+        }
+        .card-subheading{
+            margin-top: 20px;
+            font-size: 25px;
+            color: rgb(47, 53, 53);
+        }
+        @media (max-width: 400px) {
+            *{
+           
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 20px;
+        }
+        .container{
+            width: 100%;
+        }
+        .card-title{
+            font-size: 20px;
+            color: rgb(47, 53, 53);
+        }
+
+        }
+
+        
+
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="main">
+            <h1>Github Profile Wrapper</h1>
+            <input type="text" id="username" placeholder="Github Username" value="angadsingh9784">
+            <button id="showDetails">Show Details </button>
+        </div>
+
+        <div id="profileInfo">
+           
+        </div>
+        <div class="reposInfo">
+            
+        </div>
+    </div>
+
+
+<script src="script.js"></script>
+
+    
+</body>
+</html>

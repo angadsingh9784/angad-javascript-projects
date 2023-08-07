@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name Conversion</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+
+        }
+
+        .parent-div {
+            background-color: aqua;
+            display: grid;
+            grid-template-columns: 1fr;
+            justify-items: center;
+            justify-content: center;
+            outline: auto;
+            padding: 10px;
+            text-align: center;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        #input-text {
+            border: none;
+            font-size: 15px;
+            border-radius: 20px;
+            margin-top: 2%;
+            padding: 10px;
+            outline: none;
+        }
+
+        #convert {
+            padding: 6px;
+            border: none;
+            border-radius: 10px;
+            margin-top: 20px;
+            cursor: pointer;
+            font-weight: bolder;
+        }
+
+        h5 {
+            background-color: aliceblue;
+            border-radius: 10px;
+            padding: 14px;
+            margin-top: 20px;
+
+        }
+
+        @media (max-width: 900px) {
+            body {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+                background-color: rgba(128, 0, 128, 0.267);
+            }
+
+            .parent-div {
+                
+                background-color: rgba(255, 0, 255, 0.411);
+                display: grid;
+                grid-template-columns: 1fr;
+                justify-items: center;
+                justify-content: center;
+                padding: 10px;
+                text-align: center;
+                width: 90%;
+                margin: auto;
+                margin-top: 20px;
+            }
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent-div">
+        <div class="child-div">
+            <input type="text" id="input-text" placeholder="Enter the text.."><br>
+            <button id="convert">CONVERT</button>
+            <h5>Camel Case : <span id="show-camel"></span></h5>
+            <h5>Pascal Case : <span id="pas"></span></h5>
+            <h5>Snake Case : <span id="san"></span></h5>
+            <h5>Screaming Snake Case : <span id="ssc"></span></h5>
+        </div>
+    </div>
+
+
+    <script>
+
+        let typedText=document.querySelector('#input-text');
+        let btn=document.querySelector('#convert');
+        let showResult=document.querySelector('#show-camel');
+        let showResult2=document.querySelector('#pas');
+        let showResult3=document.querySelector('#san');
+        let showResult4=document.querySelector('#ssc');
+
+        btn.addEventListener('click',()=>{
+            camelCasep();
+            pascalCase();
+            snakeCase();
+            screamssc();
+        });
+        function camelCasep(){  
+            let value=typedText.value;
+            let splitWords=value.split(" ");
+            
+            for(i=0; i< splitWords.length;i++){
+                if(i===0){
+                    splitWords[i]=splitWords[i].toLowerCase();
+                   
+                }else{ 
+                    splitWords[i]=splitWords[i].charAt(0).toUpperCase()+splitWords[i].slice(1).toLowerCase();
+                    console.log(splitWords[i]);
+                }
+            }
+
+            let camelCase=splitWords.join("");
+            showResult.innerHTML=camelCase;
+        }
+
+
+
+
+        function pascalCase(){
+            let value=typedText.value;
+            let splitWords=value.split(" ");
+            for(i=0;i<splitWords.length;i++){
+                splitWords[i]=splitWords[i].charAt(0).toUpperCase()+splitWords[i].slice(1).toLowerCase();
+            }
+            let pasCas=splitWords.join("");
+            showResult2.innerHTML=pasCas;
+        }
+
+        function snakeCase(){
+            let value=typedText.value;
+            let splitWords=value.split(" ");
+           
+            for(i=0;i<splitWords.length;i++){
+                splitWords[i]=splitWords[i].toLowerCase();
+            }
+            let snkCas=splitWords.join("_");
+            showResult3.innerHTML=snkCas;
+        }
+
+        function screamssc(){
+            let value=typedText.value;
+            let splitWords=value.split(" ");
+           
+            for(i=0;i<splitWords.length;i++){
+                splitWords[i]=splitWords[i].toUpperCase();
+            }
+            let snkCass=splitWords.join("_");
+            showResult4.innerHTML=snkCass;
+        }
+
+
+    </script>
+</body>
+
+</html>

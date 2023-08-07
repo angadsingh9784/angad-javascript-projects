@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing-Test</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "BhuTuka Expanded One", cursive;
+            font-family: "Josefin Sans", sans-serif;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: rgb(10, 75, 100);
+        }
+
+        .parent-div {
+            position: relative;
+            width: 100%;
+            height: 80vh;
+            background-color: rgb(245, 230, 209);
+        }
+
+        .child-div1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            text-align: center;
+            transform: translate(-50%, -50%);
+
+
+        }
+
+        #textarea {
+            background-color: #444;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            border-radius: 15px 15px 0 0;
+            border: 13px solid #343434;
+            color: #fff;
+            font-size: 0.9rem;
+            outline: none;
+            padding: 5px;
+
+        }
+
+        #btnTwo,
+        .mainbtn {
+            border-radius: 20px;
+            padding: 10px 20px;
+            border: 5px solid #3b0568;
+            font-size: 1rem;
+            background: #ecf0fe;
+            margin: auto;
+            color: #3b0568;
+        }
+
+        @media (max-width: 900px) {
+            body {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+                background-color: purple;
+            }
+
+            #textarea {
+                width: 200px;
+                height: 250px;
+                border: 1px solid blue;
+            }
+
+            h1 {
+                font-size: 20px;
+                color: rgb(153, 0, 255);
+            }
+        }
+
+        @media (max-width:320px) {
+            #textarea {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent-div">
+
+        <div class="child-div1">
+            <h1>Welcome To Typing Speed Test</h1>
+            <h2 id="result"></h2>
+            <textarea id="textarea" cols="100" rows="10" placeholder="Type here... " oninput="inputText()"></textarea>
+            <br><br>
+            <button id="btn" class="mainbtn">Start</button>
+            <button id="btnTwo" style="display: none; margin: auto;">Start Again</button>
+        </div>
+    </div>
+    <script>
+        let textArea = document.querySelector('#textarea');
+        let startBtn = document.querySelector('#btn');
+        let restartBtn = document.querySelector('#btnTwo');
+        let resultArea = document.querySelector('#result');
+
+        textArea.style.display = "none";
+        resultArea.style.display = "none";
+
+
+        startBtn.addEventListener('click', startTyping);
+
+        function startTyping() {
+            if (startBtn.textContent === "Start") {
+                console.log('hy')
+                textArea.style.display = "block";
+                startBtn.style.display = "none";
+                restartBtn.style.display = "none";
+                textArea.value = "";
+            } else {
+                displayResult();
+            }
+
+        }
+
+        let startTime;
+        textArea.addEventListener('keydown', () => {
+            if (!startTime) {
+                startTime = new Date();
+                console.log(startTime)
+            }
+        });
+
+        function startCounting(){
+            let value=textArea.value;
+
+            const words=value.split(" ");
+            const wordCount=words.length;
+
+            console.log(wordCount);
+            const endTime=new Date;
+
+            const timeTakes=(endTime-startTime)/1000;
+            const wpm=Math.round((wordCount/timeTakes)*60);
+
+            console.log(wpm);
+            resultArea.innerHTML=`You have typed ${wordCount} words in ${timeTakes} seconds. You have a typing speed of ${wpm} wpm.`;
+        }
+
+        function displayResult() {
+            textArea.style.display = "none";
+            startBtn.style.display = "none";
+            restartBtn.style.display = "block"; 
+            resultArea.style.display = "block";
+            resultArea.style.color = "#ffffff";
+            startCounting();
+        }
+        function inputText() {
+            startBtn.style.display = "block";
+            startBtn.textContent = "Done"
+        }
+
+        restartBtn.addEventListener('click',()=>{
+         resultArea.style.display="none";
+         startBtn.textContent = "Start";
+
+         startTime=0;
+         startTyping();
+
+        })
+    </script>
+</body>
+
+</html>

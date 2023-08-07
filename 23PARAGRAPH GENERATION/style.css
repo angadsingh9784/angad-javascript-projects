@@ -1,0 +1,10 @@
+#para{
+    background-color: rgb(127, 150, 28);
+    margin-bottom: 40px;
+    padding: 10px;
+    color: white;
+    border-radius: 20px;
+}
+body{
+    background-color: aqua;
+}

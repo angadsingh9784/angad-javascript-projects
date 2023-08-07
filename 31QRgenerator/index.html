@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR code Generator</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            background-color: rgb(40, 204, 245);
+            flex-wrap: wrap;
+            height: 90vh;
+            text-align: center;
+
+        }
+
+        .main {
+            width: 80%;
+            background-color: rgb(255, 255, 255);
+            margin: auto;
+            padding: 2rem;
+            text-align: center;
+        }
+        #types{
+            width: 80%;
+            background: transparent;
+            border: 1px solid black;
+            padding: 1rem;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 15px;
+        }
+        #btn{
+            margin-top: 40px;
+            width: 70%;
+            padding: 1rem;
+            background-color: rgb(40, 204, 245);
+            color: white;
+            font-size: 15px;
+            font-weight: bolder;
+            border: none;
+        }
+        @media (max-width: 400px) {
+            #types{
+            width: 100%;
+            background: transparent;
+            border: 1px solid black;
+            padding: 1rem;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 15px;
+        }  
+        }
+         img{
+            display: block;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="main">
+        <img  id="imga" src="07-screenshot.jpg">
+        <h1>QR CODE GENERATOR</h1>
+        <input type="text" id="types" placeholder="Enter the data to generate QR Code">
+        <button id="btn">Generate QR Code</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
