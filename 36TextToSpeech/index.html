@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text To Speech</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+        *{
+            overflow: hidden;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            background-color: rgb(82, 78, 78);
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+         
+        }
+        .main{
+            background-color: rgb(255, 251, 4);
+            width: 80%;
+            padding: 30px;
+            border-radius: 10px;
+            
+            
+
+        }
+        .displayBtns{
+            display: flex;
+            justify-content: flex-end;
+        }
+        .displayBtns .btn{
+            background:transparent;
+            font-size: 20px;
+            padding: 10px;
+            margin-left: 10px;
+            color: blue;
+            border-color: blue;
+            height: 50px;
+            width: 50px;
+            margin-bottom: 20px;
+        }
+        textarea{
+            width: 100%;
+            border:2px solid black;
+            border-radius: 10px;
+            padding: 6px;
+            resize:vertical;
+        }
+        #submitBtn{
+            cursor: pointer;
+            padding: 10px;
+            font-size: 15px;
+            color: white;
+            font-weight: bolder;
+            border: none;
+            background-color: blue;
+            border-radius: 5px;
+            margin-top: 20px;
+
+         
+        }
+        h1{
+            color: blue;
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="main">
+            <h1>Text to Speech</h1>
+            <div class="displayBtns">
+                <button class="btn" id="resume">
+                    <i class="fa-solid fa-play"></i>
+                </button>
+                <button class="btn" id="pause">
+                    <i class="fa-solid fa-pause"></i>
+                </button>
+            </div>
+            <textarea id="textarea" rows="10" placeholder="Enter some text here...."></textarea>
+            <button id="submitBtn">Submit</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
