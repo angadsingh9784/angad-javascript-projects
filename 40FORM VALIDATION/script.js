@@ -26,9 +26,6 @@ function checkInput(){
     let p2=password2.value.trim();
     
  
-    if(u===''){
-        errorMessage()
-    }else{
 
     }
 }
