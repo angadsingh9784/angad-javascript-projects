@@ -55,6 +55,11 @@ function errorMessage(input,line){
     const small=gn.querySelector('small');
     small.innerText=line;
 }
+// function errorMessage(input,line){
+//     const gn=input.parentElement;
+//     const small=gn.querySelector('small');
+//     small.innerText=line;
+// }
 function sucessMessage(input){
     const a=input.parentElement;
     let b=a.querySelectorAll('i')[0];
