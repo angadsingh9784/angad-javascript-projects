@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <style>
+        #myCanvas{
+            background-color: black;
+            padding-left: 0;
+            padding-right: 0;
+            display:block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 50px;
+        }
+        h3{
+            text-align: center;
+            font-size: 20px;
+            letter-spacing: 3px;
+        }
+        span{
+            color: red;
+            margin-left:10px;
+            font-size: 20px;
+            font-family: consolas;
+            letter-spacing: 5px;
+            font-weight: bolder;
+        }
+
+    </style>
+</head>
+<body>
+    <h3>Your Score<span id=score-count>0</span></h3>
+    <canvas id="myCanvas" height="500" width="500">
+    </canvas>
+    
+<script src="script.js"></script>
+
+</body>
+</html>
