@@ -1,1 +1,1 @@
-I practice javascript by made these mini projects.
+# I practice JavaScript by making these small projects using Javascript.
